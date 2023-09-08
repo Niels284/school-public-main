@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/index.js" defer></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Home - </title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><img src="../img/logo/logo.png" alt="Bedrijfslogo" style="width:50px"></li>
+                <li><a href="index.html">have fun</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="productContainer">
+            <div class="products"></div>
+        </div>
+        <div class="configuration">
+            <div class="product configuration">
+                <div class="image">
+                    <img class="symbolLayer" id="symbolLayer" src="" alt="">
+                    <img class="productLayer" id="productImg" src="" alt="" />
+                </div>
+                <h3 id="productName"></h3>
+                <p id="productPrice"></p>
+                <div class="productSettings">
+                    <div class="symbolForm">
+                        <div class="arrows"> 
+                            <i class="arrow left symbol"></i>
+                            <img class="symbolIcon" id="symbolIcon" src="" alt="">
+                            <i class="arrow right symbol"></i>
+                        </div>
+                        <label for="symbol" id="productSymbol">Symbool</label>
+                    </div>
+                    <div class="colorForm">
+                        <div class="arrows">
+                            <i class="arrow left color"></i>
+                            <div class="colorIcon" id="colorIcon"></div>
+                            <i class="arrow right color"></i>
+                        </div>  
+                        <label for="color" id="productColor">Kleur</label>
+                    </div>
+                </div>
+                <button id="back1">Terug naar shop</button>
+                <button id="nextStep">Volgende stap</button>
+                <button id="back2">Terug naar vorige stap</button>
+                <button id="order">Bestel</button>
+                <div class="succes" id="back3" style="display:none">
+                    <h1>Bedankt voor uw bestelling!</h1>
+                    <p>Uw bestelling is succesvol geplaatst.</p>
+                    <button id="backToShop">Maak nog een bestelling</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

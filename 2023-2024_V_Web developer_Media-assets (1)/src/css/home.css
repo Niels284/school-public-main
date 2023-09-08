@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+:root {
+    --default-font: 'Raleway', sans-serif;
+
+    /* font-sizes */
+    --default-font-size: 16px;
+    --bigger-font-size: 20px;
+    --biggest-font-size: 24px;
+
+    /* font-weights */
+    --default-font-weight: 300;
+    --bolder-font-weight: 500;
+
+    /* colors */
+    --primary-color: #353531;
+    --secondary-color: #ec4e20;
+
+    --primary-font-color: #000;
+    --secondary-font-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--default-font);
+}
+
+body {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    height: 75px;
+    background-color: var(--secondary-color);
+    z-index: 1; 
+}
+
+header > nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+header > nav > ul {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+header > nav > ul > li {
+    list-style: none;
+}
+
+header > nav > ul > li > a {
+    text-decoration: none;
+    font-size: var(--bigger-font-size);
+    font-weight: var(--biggest-font-weight);
+    color: var(--secondary-font-color);
+}
+
+header > nav > ul > li:nth-child(3)::after {
+    content: '\1F6D2';
+    margin-left: 5px;
+}
+
+header > nav > ul > li > a:hover {
+    color: var(--secondary-font-color);
+}
+
+/* main */
+
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: calc(75px + 20px) 20px 20px 20px;
+    z-index: 0;
+}
+
+.products {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* product element */
+
+.product {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 475px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 20px;
+    color: var(--secondary-font-color);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.product > .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+}
+
+.product h3 {
+    margin-bottom: 10px;
+}
+
+button {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-font-color);
+    border: none;
+    padding: 5px;
+}
+
+.configuration button {
+    margin-bottom: 5px;
+}
+
+#symbolLayer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    z-index: 1;
+}
+
+#productImg, .productLayer {
+    width: 250px;
+}
+
+
+.productSettings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 200px;
+    margin: 20px 0;
+}
+
+.productSettings > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100px;
+    height: 60px;
+}
+
+.productSettings .arrows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    margin-bottom: auto;
+}
+
+.colorIcon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    background-color: white;
+}
+
+.arrow::before {
+    content: '\279C';
+    display: inline-block;
+    cursor: pointer;
+}
+
+.arrow.left::before {
+    transform: rotate(180deg);
+}
+
+.arrow:hover {
+    color: red;
+}
+
+.symbolIcon {
+    width: 40px;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+}
+
+.succes {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.succes h1, .succes p, .succes button {
+    margin-bottom: 15px;
+}
+
+/* change colorIcon by dataset */
+
+.colorIcon[data-color='default'] {
+    background-color: white;
+}
+
+.colorIcon[data-color='blauw'] {
+    background-color: blue;
+}
+
+.colorIcon[data-color='goud'] {
+    background-color: gold;
+}
+
+.colorIcon[data-color='rood'] {
+    background-color: red;
+}
+
+.colorIcon[data-color='zilver'] {
+    background-color: silver;
+}
+
+/* change position of symbolLayer by dataset */
+.image[data-productid="1"] #symbolLayer {
+    transform: translate(0px, 5px);
+}
+
+.image[data-productid="2"] #symbolLayer{
+    transform: translate(-10px, -15px);
+}
+
+.image[data-productid="3"] #symbolLayer{
+    transform: translate(40px, 15px);
+}
