@@ -73,11 +73,6 @@ header > nav > ul > li > a {
     color: var(--secondary-font-color);
 }
 
-header > nav > ul > li:nth-child(3)::after {
-    content: '\1F6D2';
-    margin-left: 5px;
-}
-
 header > nav > ul > li > a:hover {
     color: var(--secondary-font-color);
 }
