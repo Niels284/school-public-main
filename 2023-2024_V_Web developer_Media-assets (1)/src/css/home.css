@@ -222,6 +222,11 @@ label {
     margin-bottom: 15px;
 }
 
+header > p#version {
+    color: var(--secondary-font-color);
+    margin: 5px;
+}
+
 /* change colorIcon by dataset */
 
 .colorIcon[data-color='default'] {
