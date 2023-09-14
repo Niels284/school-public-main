@@ -1,9 +1,11 @@
 let static_dataset = null;
+let static_nav_dataset = null;
 
 // When the DOM is loaded, this function will run
 $(document).ready(async () => {
   try {
-    static_dataset = await getDataSet();
+    static_dataset = await getDataSet("../json/dataset.json");
+    static_nav_dataset = await getDataSet("../json/nav.json");
     const current_page = localStorage.getItem("current_page");
     if (current_page === null) {
       localStorage.setItem("current_page", "shop");
@@ -52,9 +54,9 @@ $(document).ready(async () => {
 });
 
 // insert dataset.json to static_dataset (fetch async)
-async function getDataSet() {
+async function getDataSet(dataset) {
   try {
-    const res = await fetch("../dataset.json");
+    const res = await fetch(dataset);
     if (!res.ok) {
       throw new Error("Failed to fetch dataset");
     }
@@ -105,6 +107,7 @@ function sendDataToServer() {
 
 // CONTENT LOADING FUNCTIONS
 function loadPage(current_page) {
+  generateNavigation();
   $(".active").removeClass("active");
   $("#back3").removeAttr("style");
   switch (current_page) {
@@ -124,6 +127,40 @@ function loadPage(current_page) {
       break;
     default:
       console.error("no page found");
+  }
+}
+
+// GENERATES NAVIGATION ITEMS
+function generateNavigation() {
+  if ($("nav > ul").children().length == 0) {
+    let i = 0;
+    let iBool = false;
+    static_nav_dataset.nav.forEach((navItem) => {
+      if (i === 2 && iBool === false) {
+        $("nav > ul").append(`
+          <li>
+            <img src="../img/logo/logo.png" alt="Bedrijfslogo" style="width:50px">
+          </li>
+        `);
+        i = 0;
+        iBool = true;
+      } else {
+        i++;
+      }
+      $("nav > ul").append(`
+      <li>
+        <a href="${navItem.url}">
+          ${navItem.title}
+        </a>
+      </li>
+      `);
+    });
+    $("nav > ul > li").each(function () {
+      $(this).click(function () {
+        localStorage.removeItem("cart");
+        changePage("shop");
+      });
+    });
   }
 }
 
