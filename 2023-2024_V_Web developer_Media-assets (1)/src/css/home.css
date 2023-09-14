@@ -162,7 +162,7 @@ button {
     margin: 20px 0;
 }
 
-.productSettings > div {
+.productSettings > div.active {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -260,4 +260,12 @@ label {
 
 .image[data-productid="3"] #symbolLayer{
     transform: translate(40px, 15px);
+}
+
+.productContainer, .configurationContainer, .symbolForm, .colorForm, #nextStep, #order, #back1, #back2, #back3 {
+    display: none;
+}
+
+.active {
+    display: block !important;
 }
