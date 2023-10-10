@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <script>
+    const arrayMetZinnen = ['Dit is een zin', 'Dit is een andere zin', 'Dit is de laatste zin']
+    const arr1 = ["boom", "roos", "vis", "vuur", "mus", "pim", "kees", "miep", "bel", "boek"];
+    const arr2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25];
+    const arr3 = [8,2,3,67,8,3,22,94,1];
+    
+    const arr1_1 = arr1.map((item) => console.log(item));
+    const arr2_1 = arr2.filter((item) => item % 2 === 0 ? console.log(item) : null);     
+    const arr3_1 = console.log(arr3.reduce(getSum, 0));     
+
+    function bepaalLengteZinnen(arrayMetZinnen, callback){
+      for(let i = 0; i < arrayMetZinnen.length; i++){
+        callback(arrayMetZinnen[i]);    
+      }
+    }
+
+    function zinLengte(zin) {
+      //TODO: Hier de code om de lengte van de zin naar het console te schrijven
+      console.log(zin.length);
+    }
+
+    //TODO: Hier de code om van de array de lengte van iedere zin te tonen in het console
+    function callback(zin) {
+        zinLengte(zin);
+    }
+
+    // berektn de som van alle getallen in de array
+    function getSum(total, num) {
+        return total + Math.round(num);
+    }
+
+    bepaalLengteZinnen(arrayMetZinnen, callback);
+    // Maak gebruik van bovenstaande functies
+  </script>
+</body>
+</html>
