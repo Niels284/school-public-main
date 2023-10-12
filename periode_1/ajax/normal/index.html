@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../extra/cssreset.css">
+    <title>Project - Ajax</title>
+</head>
+
+<body>
+    <main>
+        <form method="post" action="./database.php">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Name" required>
+        </form>
+        <div class="content"></div>
+    </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    document.querySelector('#name').addEventListener('keyup', function() {
+        const inputValue = this.value;
+        const oReq = new XMLHttpRequest();
+        const content = document.querySelector('.content');
+
+        oReq.onload = function() {
+            if (oReq.status === 200) {
+                const response = JSON.parse(oReq.responseText);
+                content.innerHTML = ``;
+                response.forEach((element) => {
+                    content.innerHTML += `<p>${element.name}</p>`;
+                })
+            }
+        };
+
+        oReq.open('GET', 'ajaxtest.php?data=' + inputValue);
+        oReq.send();
+    });
+</script>
+</html>
