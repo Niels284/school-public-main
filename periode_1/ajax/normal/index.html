@@ -14,28 +14,25 @@
             <label for="name">Name</label>
             <input type="text" name="name" id="name" placeholder="Name" required>
         </form>
-        <div class="content"></div>
+        <div id="content"></div>
     </main>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    document.querySelector('#name').addEventListener('keyup', function() {
-        const inputValue = this.value;
-        const oReq = new XMLHttpRequest();
-        const content = document.querySelector('.content');
-
-        oReq.onload = function() {
-            if (oReq.status === 200) {
-                const response = JSON.parse(oReq.responseText);
-                content.innerHTML = ``;
-                response.forEach((element) => {
-                    content.innerHTML += `<p>${element.name}</p>`;
-                })
-            }
-        };
-
-        oReq.open('GET', 'ajaxtest.php?data=' + inputValue);
-        oReq.send();
-    });
+    window.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('name').addEventListener('keyup', function() {
+            const content = document.getElementById('content');
+            $.ajax({
+                method: "GET",
+                url: `./ajaxtest.php?data=${this.value}`,
+                success: function (response) {
+                    content.innerHTML = ``;
+                    response.forEach((item) => {
+                        content.innerHTML += `<p>${item.name}</p>`;
+                    })            
+                },
+            });
+        });
+    })
 </script>
 </html>
