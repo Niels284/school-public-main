@@ -1,0 +1,18 @@
+[
+    {
+        "title": "home",
+        "url" : "/"
+    },
+    {
+        "title" : "producten",
+        "url" : "/producten/"
+    },
+    {
+        "title": "Over ons",
+        "url" : "/overons/"
+    },
+    {
+        "title": "contact",
+        "url" : "/contact/"
+    }
+]
