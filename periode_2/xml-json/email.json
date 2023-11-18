@@ -1,0 +1,20 @@
+{
+    "emails": [
+      {
+          "id": "1",
+          "naam": "Jean-Pierre Nuvelstein",
+          "emailadres": "jpnuvelstein@gmail.com",
+          "verzendenAan": "niels123@gmail.com",
+          "onderwerp": "Gewoon een vraag",
+          "inhoud": "Hoi Niels, Ik heb gewoon een vraag aan jou, wanneer kan ik je even spreken? Groeten JP"
+        },
+        {
+          "id": "2",
+          "naam": "Niels",
+          "emailadres": "niels123@gmail.com",
+          "verzendenAan": "jpnuvelstein@gmail.com",
+          "onderwerp": "RE: Gewoon een vraag",
+          "inhoud": "Hoi JP, Zullen we morgen afspreken, zodat we het een en ander kunnen bespreken? Groeten Niels"
+        }
+    ]
+  }

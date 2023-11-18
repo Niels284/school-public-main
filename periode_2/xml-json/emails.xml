@@ -1,0 +1,16 @@
+<emails>
+    <email id="1">
+        <naam>Jean-Pierre Nuvelstein</naam>
+        <emailadres>jpnuvelstein@gmail.com</emailadres>
+        <verzendenAan>niels123@gmail.com</verzendenAan>
+        <onderwerp>Gewoon een vraag</onderwerp>
+        <inhoud>Hoi Niels, Ik heb gewoon een vraag aan jou, wanneer kan ik je even spreken? Groeten JP</inhoud>
+    </email>
+     <email id="2">
+        <naam>Niels</naam>
+        <emailadres>niels123@gmail.com</emailadres>
+        <verzendenAan>jpnuvelstein@gmail.com</verzendenAan>
+        <onderwerp>RE: Gewoon een vraag</onderwerp>
+        <inhoud>Hoi JP, Zullen we morgen afspreken, zodat we het een en ander kunnen bespreken? Groeten Niels</inhoud>
+    </email>
+</emails>
