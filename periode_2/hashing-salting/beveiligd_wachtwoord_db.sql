@@ -1,0 +1,10 @@
+CREATE TABLE `gebruiker` (
+`ID` int AUTO_INCREMENT,
+`GEBRUIKERSNAAM` varchar(50),
+`SALTING` varchar(50),
+`HASH_WACHTWOORD` varchar(50),
+`AANTAL_LOGINS` int NULL,
+`LAATSTE_LOGIN` timestamp NULL,
+`BLOCKED` tinyint(1) NULL,
+PRIMARY KEY (`ID`)
+);
