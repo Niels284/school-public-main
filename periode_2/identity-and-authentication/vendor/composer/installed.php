@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'nielsjansen/identity-and-authentication',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '29cae2f4be71b569a42ca99f80988811877948ae',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'catfan/medoo' => array(
+            'pretty_version' => 'v2.1.10',
+            'version' => '2.1.10.0',
+            'reference' => 'eb1ad19d127bd358b9a44abc60166b4a2c19a988',
+            'type' => 'framework',
+            'install_path' => __DIR__ . '/../catfan/medoo',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'nielsjansen/identity-and-authentication' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '29cae2f4be71b569a42ca99f80988811877948ae',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.9.1',
+            'version' => '6.9.1.0',
+            'reference' => '039de174cd9c17a8389754d3b877a2ed22743e18',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);
