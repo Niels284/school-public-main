@@ -1,14 +1,16 @@
 <?php
 session_start();
 
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', 1);
+
 require_once $_SERVER["DOCUMENT_ROOT"] . "/vendor/autoload.php";
 include_once "../../../controller/functions.php";
 
 use Controller\Database;
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', 1);
+
 
 $database = new Database();
 
