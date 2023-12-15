@@ -20,6 +20,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
 }
 
 $db = new Controller1();
+$session_user = $db->getUser($_SESSION['user']['id']);
 
 if (isset($_GET['id'])) {
     $user = $db->getUser(htmlspecialchars($_GET['id']));
@@ -57,16 +58,22 @@ if (isset($_POST['update_gebruiker'])) {
             <label for="wachtwoord">Wachtwoord</label>
             <input type="password" class="form-control" id="wachtwoord" name="wachtwoord" required>
         </div>
-        <div class="form-group">
-            <label for="rechten_niveau">Rechten niveau</label>
-            <select name="rechten_niveau">
-                <option value="0" <?= $user['rechten_niveau'] === 0 ? 'selected' : '' ?>>0</option>
-                <option value="1" <?= $user['rechten_niveau'] === 1 ? 'selected' : '' ?>>1</option>
-                <option value="2" <?= $user['rechten_niveau'] === 2 ? 'selected' : '' ?>>2</option>
-                <option value="3" <?= $user['rechten_niveau'] === 3 ? 'selected' : '' ?>>3</option>
-                <option value="4" <?= $user['rechten_niveau'] === 4 ? 'selected' : '' ?>>4</option>
-            </select>
-        </div>
+        <?php if ($user['rechten_niveau'] <= $session_user['rechten_niveau']) : ?>
+            <div class="form-group">
+                <label for="rechten_niveau">Rechten niveau</label>
+                <select name="rechten_niveau">
+                    <option value="0" <?= $user['rechten_niveau'] === 0 ? 'selected' : '' ?>>0</option>
+                    <option value="1" <?= $user['rechten_niveau'] === 1 ? 'selected' : '' ?>>1</option>
+                    <?php if ($session_user['rechten_niveau'] >= 3) : ?>
+                        <option value="2" <?= $user['rechten_niveau'] === 2 ? 'selected' : '' ?>>2</option>
+                    <?php endif; ?>
+                    <?php if ($session_user['rechten_niveau'] >= 4) : ?>
+                        <option value="3" <?= $user['rechten_niveau'] === 3 ? 'selected' : '' ?>>3</option>
+                        <option value="4" <?= $user['rechten_niveau'] === 4 ? 'selected' : '' ?>>4</option>
+                    <?php endif; ?>
+                </select>
+            </div>
+        <?php endif; ?>
         <button type="submit" class="btn btn-primary" name="update_gebruiker">Wijzigingen opslaan</button>
     </form>
     <?php if (isset($message) && !empty($message['error'])) : ?>

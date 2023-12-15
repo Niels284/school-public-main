@@ -7,19 +7,19 @@ use Controllers\Controller1;
 include_once('../../controller/controller.php');
 
 $message;
+$db = new Controller1();
+$session_user = $db->getUser($_SESSION['user']['id']);
 
 if (!isset($_SESSION['user']['id'])) {
     header('Location: ./login.php');
     exit;
+} else if (isset($_SESSION['user']['id'])) {
+    if ($session_user['rechten_niveau'] < 3) {
+        $_SESSION['message'] = ['error' => 'U heeft niet de juiste rechten om een gebruiker aan te maken'];
+        header('Location: ./users.php');
+        exit;
+    }
 }
-
-if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-    session_destroy();
-    header('Location: ./login.php');
-    exit;
-}
-
-$db = new Controller1();
 
 if (isset($_GET['id'])) {
     $user = $db->getUser(htmlspecialchars($_GET['id']));
@@ -68,9 +68,13 @@ if (isset($_POST['create_gebruiker'])) {
             <select name="rechten_niveau">
                 <option value="0">0</option>
                 <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
+                <?php if ($session_user['rechten_niveau'] >= 3) : ?>
+                    <option value="2">2</option>
+                <?php endif; ?>
+                <?php if ($session_user['rechten_niveau'] >= 4) : ?>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                <?php endif; ?>
             </select>
         </div>
         <button type="submit" class="btn btn-primary" name="create_gebruiker">Gebruiker aanmaken</button>
